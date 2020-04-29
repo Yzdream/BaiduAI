@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">图片识别</string>
+    <string name="name">名  称：</string>
+    <string name="score">概  率：</string>
+    <string name="plant">植物识别</string>
+    <string name="animal">动物识别</string>
+    <string name="ingredient">果蔬识别</string>
+    <string name="general">通用识别</string>
+
+</resources>

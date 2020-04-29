@@ -1,0 +1,18 @@
+<resources>
+
+
+    <style name="Dialog_style" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item><!--边框  null就只会显示有颜色的控件和背景-->
+        <item name="android:windowIsFloating">true</item><!--是否浮现在activity之上-->
+        <item name="android:windowIsTranslucent">false</item><!--半透明-->
+        <item name="android:windowNoTitle">true</item><!--无标题-->
+        <item name="android:windowBackground">#00000000</item><!--背景透明-->
+        <item name="android:backgroundDimEnabled">true</item><!--模糊-->
+    </style>
+
+    <style name="dialog_anim" parent="@android:style/Animation.Dialog">
+        <item name="android:windowEnterAnimation">@anim/bottom_up</item>
+        <item name="android:windowExitAnimation">@anim/up_bottom</item>
+    </style>
+
+</resources>
