@@ -7,8 +7,11 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.KeyEvent;
 import android.view.WindowManager;
 
+import com.tencent.bugly.beta.Beta;
+import com.tencent.bugly.crashreport.CrashReport;
 import com.yanzhenjie.album.Album;
 import com.yz.baiduai.R;
 import com.yz.baiduai.databinding.ActivityMainBinding;
@@ -18,8 +21,11 @@ import com.yz.baiduai.common.mvvm.BaseActivity;
 import com.yz.data.Constants;
 import com.yz.utils.BarUtils;
 import com.yz.utils.ImageBlur;
+import com.yz.utils.ToastHelper;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
+
+    private long backTime = 0;
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
 
@@ -52,7 +58,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         super.initView(savedInstanceState);
         windowTranslucentStatus();
         BarUtils.setStatusBar(MainActivity.this, false);
-
+//        Beta.checkUpgrade(false,false);
         //注册系统时间每分钟改变的广播
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_TIME_TICK);
@@ -61,6 +67,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
         //检验token是否失效
         mViewModel.checkAccessToken();
 
+        ToastHelper.showLongToast("最新补丁测试");
         //模糊背景
         ImageBlur.makeBlur(mBinding.tvGeneral, 8, this);
         ImageBlur.makeBlur(mBinding.tvPlant, 10, this);
@@ -91,6 +98,23 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
             WindowManager.LayoutParams localLayoutParams = getWindow().getAttributes();
             localLayoutParams.flags = (WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS | localLayoutParams.flags);
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                long secondTime = System.currentTimeMillis();
+                if (secondTime - backTime > 2000) {
+                    ToastHelper.showShortToast("再按一次退出程序");
+                    backTime = secondTime;
+                    return true;
+                } else {
+                    System.exit(0);
+                }
+                break;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @Override

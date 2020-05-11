@@ -2,7 +2,8 @@ package com.yz.baiduai.model;
 
 import android.text.TextUtils;
 
-import com.yz.baiduai.MyApplication;
+import com.yz.baiduai.SampleApplicationLike;
+import com.yz.baiduai.SampleApplicationLike;
 import com.yz.baiduai.common.mvvm.BaseRepository;
 import com.yz.data.Constants;
 import com.yz.data.bean.BaiduKey;
@@ -47,7 +48,7 @@ public class BaiduModel extends BaseRepository {
     }
 
     public void identifyGeneral(Map<String, Object> map, ResultDataCallBack<ResultData> callBack) {
-        String accessToken = String.valueOf(SharedPreferencesUtils.getParam(MyApplication.getContext(), Constants.ACCESS_TOKEN, ""));
+        String accessToken = String.valueOf(SharedPreferencesUtils.getParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN, ""));
         addSubscribe(HttpMethods.getInStance().getGeneral(map, accessToken).subscribe(new Observer<ResultData>() {
             @Override
             public void onCompleted() {
@@ -71,17 +72,17 @@ public class BaiduModel extends BaseRepository {
     }
 
     public void identifyPlant(Map<String, Object> map, ResultDataCallBack<ResultData> callBack) {
-        String accessToken = String.valueOf(SharedPreferencesUtils.getParam(MyApplication.getContext(), Constants.ACCESS_TOKEN, ""));
+        String accessToken = String.valueOf(SharedPreferencesUtils.getParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN, ""));
         addSubscribe(HttpMethods.getInStance().getPlant(map, accessToken).subscribe(onObserver(callBack)));
     }
 
     public void identifyAnimal(Map<String, Object> map, ResultDataCallBack<ResultData> callBack) {
-        String accessToken = String.valueOf(SharedPreferencesUtils.getParam(MyApplication.getContext(), Constants.ACCESS_TOKEN, ""));
+        String accessToken = String.valueOf(SharedPreferencesUtils.getParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN, ""));
         addSubscribe(HttpMethods.getInStance().getAnimal(map, accessToken).subscribe(onObserver(callBack)));
     }
 
     public void identifyIngredient(Map<String, Object> map, ResultDataCallBack<ResultData> callBack) {
-        String accessToken = String.valueOf(SharedPreferencesUtils.getParam(MyApplication.getContext(), Constants.ACCESS_TOKEN, ""));
+        String accessToken = String.valueOf(SharedPreferencesUtils.getParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN, ""));
         addSubscribe(HttpMethods.getInStance().getIngredient(map, accessToken).subscribe(onObserver(callBack)));
     }
 

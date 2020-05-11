@@ -5,7 +5,8 @@ import android.arch.lifecycle.MutableLiveData;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.yz.baiduai.MyApplication;
+import com.yz.baiduai.SampleApplicationLike;
+import com.yz.baiduai.SampleApplicationLike;
 import com.yz.baiduai.model.BaiduModel;
 import com.yz.baiduai.common.mvvm.BaseViewModel;
 import com.yz.data.Constants;
@@ -49,11 +50,11 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
     }
 
     public void checkAccessToken() {
-        if (TextUtils.isEmpty(String.valueOf(SharedPreferencesUtils.getParam(MyApplication.getContext(), Constants.ACCESS_TOKEN, "")))) {
+        if (TextUtils.isEmpty(String.valueOf(SharedPreferencesUtils.getParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN, "")))) {
             getAccessToken();
         } else {
             //有效时间  时间戳
-            long time = (long) SharedPreferencesUtils.getParam(MyApplication.getContext(), Constants.ACCESS_TOKEN_TIME, 0L);
+            long time = (long) SharedPreferencesUtils.getParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN_TIME, 0L);
             if (time - System.currentTimeMillis() <= 5 * 60 * 1000) {
                 //失效时间提前5分钟 刷新
                 getAccessToken();
@@ -66,8 +67,8 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
             @Override
             public void onSuccess(BaiduKey baiduKey) {
                 super.onSuccess(baiduKey);
-                SharedPreferencesUtils.setParam(MyApplication.getContext(), Constants.ACCESS_TOKEN, baiduKey.getAccess_token());
-                SharedPreferencesUtils.setParam(MyApplication.getContext(), Constants.ACCESS_TOKEN_TIME, System.currentTimeMillis() + (baiduKey.getExpires_in() * 1000));
+                SharedPreferencesUtils.setParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN, baiduKey.getAccess_token());
+                SharedPreferencesUtils.setParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN_TIME, System.currentTimeMillis() + (baiduKey.getExpires_in() * 1000));
                 showMsg("鉴权成功！");
             }
 
@@ -166,8 +167,8 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
     }
 
     /* private void getPermissions() {
-             if (!AndPermission.hasPermissions(MyApplication.getContext(), Permission.Group.CALENDAR)) {
-                 AndPermission.with(MyApplication.getContext())
+             if (!AndPermission.hasPermissions(SampleApplicationLike.getContext(), Permission.Group.CALENDAR)) {
+                 AndPermission.with(SampleApplicationLike.getContext())
                          .runtime().permission(Permission.Group.CALENDAR)
                          .onGranted(data -> {
 
