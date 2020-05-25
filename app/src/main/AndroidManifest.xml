@@ -4,15 +4,13 @@
     package="com.yz.baiduai">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.CAMERA" />
-
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_LOGS"
+    <uses-permission
+        android:name="android.permission.READ_LOGS"
         tools:ignore="ProtectedPermissions" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
@@ -26,12 +24,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
-
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.yz.baiduai.provider"
             android:exported="false"
             android:grantUriPermissions="true">
+
             <!-- 元数据 -->
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
@@ -42,7 +40,6 @@
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@android:style/Theme.Translucent" />
-
         <activity
             android:name=".ui.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
@@ -53,6 +50,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.ImageDetailsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

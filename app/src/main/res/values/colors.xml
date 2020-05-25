@@ -4,12 +4,17 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
+    <color name="transparent">#00000000</color>
+
     <color name="white">#ffffff</color>
 
-    <color name="transparent">#00000000</color>
+    <color name="gray_b6">#B6B6B6</color>
+    <color name="gray_b5">#B5B5B5</color>
+    <color name="gray_ef">#EFEFEF</color>
 
     <color name="blank_00_70">#b1000000</color>
     <color name="blank_00_26">#262826</color>
+    <color name="black_43">#434343</color>
 
     <color name="blue_f0">#3fc5f0</color>
 

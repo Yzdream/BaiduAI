@@ -6,26 +6,30 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 import android.view.WindowManager;
 
-import com.tencent.bugly.beta.Beta;
-import com.tencent.bugly.crashreport.CrashReport;
-import com.yanzhenjie.album.Album;
 import com.yz.baiduai.R;
-import com.yz.baiduai.databinding.ActivityMainBinding;
-import com.yz.baiduai.dialog.DetailsDialog;
-import com.yz.baiduai.viewmodel.MainViewModel;
 import com.yz.baiduai.common.mvvm.BaseActivity;
-import com.yz.data.Constants;
+import com.yz.baiduai.databinding.ActivityMainBinding;
+import com.yz.baiduai.viewmodel.MainViewModel;
 import com.yz.utils.BarUtils;
-import com.yz.utils.ImageBlur;
 import com.yz.utils.ToastHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel> {
 
     private long backTime = 0;
+    //Fragment集合
+    private List<Fragment> FragmentList;
+    //上一个展示的Fragment 用于控制Fragment显示
+    private int lastIndex = 0;
 
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
 
@@ -54,11 +58,19 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
     }
 
     @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+      /*  当界面销毁时不保存状态  使Fragment也重新创建
+        super.onSaveInstanceState(outState, outPersistentState);*/
+    }
+
+    @Override
     protected void initView(@Nullable Bundle savedInstanceState) {
         super.initView(savedInstanceState);
+        //全屏
         windowTranslucentStatus();
         BarUtils.setStatusBar(MainActivity.this, false);
-//        Beta.checkUpgrade(false,false);
+
+        initFragment();
         //注册系统时间每分钟改变的广播
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_TIME_TICK);
@@ -66,31 +78,49 @@ public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewMode
 
         //检验token是否失效
         mViewModel.checkAccessToken();
-
-        ToastHelper.showLongToast("最新补丁测试");
-        //模糊背景
-        ImageBlur.makeBlur(mBinding.tvGeneral, 8, this);
-        ImageBlur.makeBlur(mBinding.tvPlant, 10, this);
-        ImageBlur.makeBlur(mBinding.tvAnimal, 10, this);
-        ImageBlur.makeBlur(mBinding.tvIngredient, 15, this);
-
-        //观察识别结果
-        mViewModel.getIntentDetails().observe(this, aBoolean -> new DetailsDialog().show(getSupportFragmentManager(), "data"));
-
-        mBinding.tvGeneral.setOnClickListener(view -> chooseImage(Constants.GENERAL));
-        mBinding.tvPlant.setOnClickListener(view -> chooseImage(Constants.PLANT));
-        mBinding.tvAnimal.setOnClickListener(view -> chooseImage(Constants.AMIMAL));
-        mBinding.tvIngredient.setOnClickListener(view -> chooseImage(Constants.INGREDIENT));
     }
 
-    private void chooseImage(String type) {
-        Album.image(MainActivity.this)
-                .multipleChoice()
-                .camera(true)
-                .columnCount(3)
-                .selectCount(1)
-                .onResult(result -> mViewModel.identify(type, result.get(0).getPath()))
-                .start();
+    private void initFragment() {
+        FragmentList = new ArrayList<>();
+        FragmentList.add(new HomeFragment());
+        FragmentList.add(new MyFragment());
+        selectFragment(HomeFragment.HOME_PAGE);
+        //绑定底部导航栏
+        mBinding.bnvView.setOnNavigationItemSelectedListener(menuItem -> {
+            switch (menuItem.getItemId()) {
+                case R.id.main_home:
+                    selectFragment(HomeFragment.HOME_PAGE);
+                    return true;
+                case R.id.main_my:
+                    selectFragment(MyFragment.MY_PAGE);
+                    return true;
+                default:
+                    break;
+            }
+            return false;
+        });
+    }
+
+
+    /**
+     * Fragment碎片管理
+     *
+     * @param index 要显示的界面 从0开始
+     */
+    private void selectFragment(int index) {
+        //获取Fragment事务
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        Fragment currentFragment = FragmentList.get(index);
+        Fragment lastFragment = FragmentList.get(lastIndex);
+        lastIndex = index;
+        transaction.hide(lastFragment);
+        if (!currentFragment.isAdded()) {
+            getSupportFragmentManager().beginTransaction().remove(currentFragment).commit();
+            transaction.add(R.id.fl_content, currentFragment);
+        }
+        transaction.show(currentFragment);
+        //提交事务
+        transaction.commitAllowingStateLoss();
     }
 
     private void windowTranslucentStatus() {

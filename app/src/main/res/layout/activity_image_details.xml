@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.ImageDetailsActivity">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.yz.baiduai.viewmodel.ImageDetailsViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_48"
+            android:background="@color/colorPrimary">
+            
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/dp_50"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:src="@mipmap/icon_back"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/sp_18"
+                android:textColor="@color/white"
+                android:text="@string/details_title"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_data" />
+
+    </LinearLayout>
+
+</layout>

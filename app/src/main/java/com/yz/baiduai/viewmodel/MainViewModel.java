@@ -2,10 +2,10 @@ package com.yz.baiduai.viewmodel;
 
 import android.app.Application;
 import android.arch.lifecycle.MutableLiveData;
+import android.databinding.ViewDataBinding;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
-import com.yz.baiduai.SampleApplicationLike;
 import com.yz.baiduai.SampleApplicationLike;
 import com.yz.baiduai.model.BaiduModel;
 import com.yz.baiduai.common.mvvm.BaseViewModel;
@@ -17,7 +17,6 @@ import com.yz.baiduai.common.http.ResultDataListener;
 import com.yz.utils.Base64Util;
 import com.yz.utils.FileUtil;
 import com.yz.utils.SharedPreferencesUtils;
-import com.yz.utils.exception.UncaughtException;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -69,7 +68,6 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
                 super.onSuccess(baiduKey);
                 SharedPreferencesUtils.setParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN, baiduKey.getAccess_token());
                 SharedPreferencesUtils.setParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN_TIME, System.currentTimeMillis() + (baiduKey.getExpires_in() * 1000));
-                showMsg("鉴权成功！");
             }
 
             @Override
@@ -81,7 +79,6 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
     }
 
     public void identify(String type, String filePath) {
-        showLoading();
         //子线程处理文件数据  主线程处理逻辑
         subscription = Observable.create((Observable.OnSubscribe<Map<String, Object>>) subscriber -> {
             try {
@@ -92,8 +89,8 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
                 String imgParam = URLEncoder.encode(imgStr, "UTF-8");
                 Map<String, Object> map = new HashMap<>();
                 map.put("image", imgParam);
-                map.put("baike_num", 1);
-                map.put("top_num", 1);
+                map.put("baike_num", 3);
+                map.put("top_num", 6);
                 subscriber.onNext(map);
                 subscriber.onCompleted();
             } catch (IOException e) {
@@ -110,9 +107,8 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
 
                     @Override
                     public void onError(Throwable e) {
-                        UncaughtException.getInstance(getApplication()).exceptionThrowable(e);
-                        showMsg("程序异常！");
                         hiddenLoading();
+                        showMsg("程序异常！");
                     }
 
                     @Override
@@ -142,13 +138,14 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
         @Override
         public void onSuccess(ResultData resultData) {
             super.onSuccess(resultData);
+            hiddenLoading();
             if (resultData.getResult() != null && resultData.getResult().size() > 0) {
                 details.setValue(new ArrayList<>(Collections.singleton(resultData.getResult().get(0))));
                 intentDetails.setValue(true);
             } else {
                 showMsg("暂无结果！");
             }
-            hiddenLoading();
+
         }
 
         @Override

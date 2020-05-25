@@ -44,6 +44,7 @@ public abstract class BaseActivity<mBinding extends ViewDataBinding, mViewModel 
         }
         mViewModel = ViewModelProviders.of(this).get(getViewModelClass());
         initViewModel(mViewModel);
+        setLoading(mViewModel);
         dataBindingSetViewModel();
         initView(savedInstanceState);
         initData();
@@ -51,7 +52,6 @@ public abstract class BaseActivity<mBinding extends ViewDataBinding, mViewModel 
 
     public void initViewModel(mViewModel mViewModel) {
         if (mViewModel != null) {
-            setLoading(mViewModel);
             setShowMessage(mViewModel);
             setLogin(mViewModel);
         }
