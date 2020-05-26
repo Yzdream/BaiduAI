@@ -86,6 +86,11 @@ public class BaiduModel extends BaseRepository {
         addSubscribe(HttpMethods.getInStance().getIngredient(map, accessToken).subscribe(onObserver(callBack)));
     }
 
+    public void identifyCarType(Map<String, Object> map, ResultDataCallBack<ResultData> callBack) {
+        String accessToken = String.valueOf(SharedPreferencesUtils.getParam(SampleApplicationLike.getContext(), Constants.ACCESS_TOKEN, ""));
+        addSubscribe(HttpMethods.getInStance().getCarType(map, accessToken).subscribe(onObserver(callBack)));
+    }
+
     private Observer<ResultData> onObserver(ResultDataCallBack<ResultData> callBack){
        return new Observer<ResultData>() {
             @Override

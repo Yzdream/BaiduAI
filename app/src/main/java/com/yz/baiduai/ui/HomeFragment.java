@@ -36,6 +36,7 @@ public class HomeFragment extends FmBaseFragment<FragmentHomeBinding, MainViewMo
 
         //模糊背景
         ImageBlur.makeBlur(mBinding.tvGeneral, 8, getNonNullActivity());
+        ImageBlur.makeBlur(mBinding.tvCarType, 8, getNonNullActivity());
         ImageBlur.makeBlur(mBinding.tvPlant, 10, getNonNullActivity());
         ImageBlur.makeBlur(mBinding.tvAnimal, 10, getNonNullActivity());
         ImageBlur.makeBlur(mBinding.tvIngredient, 15, getNonNullActivity());
@@ -47,6 +48,7 @@ public class HomeFragment extends FmBaseFragment<FragmentHomeBinding, MainViewMo
         });
 
         mBinding.tvGeneral.setOnClickListener(view -> chooseImage(Constants.GENERAL));
+        mBinding.tvCarType.setOnClickListener(view -> chooseImage(Constants.CAR_TYPE));
         mBinding.tvPlant.setOnClickListener(view -> chooseImage(Constants.PLANT));
         mBinding.tvAnimal.setOnClickListener(view -> chooseImage(Constants.AMIMAL));
         mBinding.tvIngredient.setOnClickListener(view -> chooseImage(Constants.INGREDIENT));

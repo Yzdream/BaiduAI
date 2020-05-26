@@ -50,6 +50,7 @@ public class MyFragment extends FmBaseFragment<FragmentMyBinding, MainViewModel>
                 evaluation();
                 break;
             case R.id.tv_app_explain:
+                intentActivity(AboutAppActivity.class);
                 break;
             case R.id.tv_written_records:
                 break;

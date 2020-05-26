@@ -15,5 +15,6 @@ public class Constants {
     public static final String INGREDIENT = "ingredient";
     //通用识别
     public static final String GENERAL = "general";
-
+    //车型识别
+    public static final String CAR_TYPE = "car_type";
 }

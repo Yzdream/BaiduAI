@@ -37,5 +37,7 @@ public interface RetrofitService {
     @POST("/rest/2.0/image-classify/v1/classify/ingredient")
     Observable<ResultData> getIngredient(@Body RequestBody body, @Query("access_token") String accessToken);
 
+    @POST("/rest/2.0/image-classify/v1/car")
+    Observable<ResultData> getCarType(@Body RequestBody body, @Query("access_token") String accessToken);
 
 }

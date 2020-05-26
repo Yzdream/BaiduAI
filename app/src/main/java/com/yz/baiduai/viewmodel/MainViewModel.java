@@ -79,6 +79,7 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
     }
 
     public void identify(String type, String filePath) {
+        showLoading();
         //子线程处理文件数据  主线程处理逻辑
         subscription = Observable.create((Observable.OnSubscribe<Map<String, Object>>) subscriber -> {
             try {
@@ -125,6 +126,9 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
                                 break;
                             case Constants.INGREDIENT:
                                 mModel.identifyIngredient(map, resultDataListener);
+                                break;
+                            case Constants.CAR_TYPE:
+                                mModel.identifyCarType(map, resultDataListener);
                                 break;
                             default:
                                 mModel.identifyGeneral(map, resultDataListener);

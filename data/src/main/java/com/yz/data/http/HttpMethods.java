@@ -49,4 +49,8 @@ public class HttpMethods {
     public Observable<ResultData> getIngredient(Map<String, Object> map, String accessToken) {
         return onThread(RetofitHttp.getInstance().getIngredient(bodyHelper.getRequestBody(map), accessToken));
     }
+
+    public Observable<ResultData> getCarType(Map<String, Object> map, String accessToken) {
+        return onThread(RetofitHttp.getInstance().getCarType(bodyHelper.getRequestBody(map), accessToken));
+    }
 }

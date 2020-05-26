@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">图片识别</string>
+    <string name="app_name">易识别</string>
     <string name="name">名  称：</string>
     <string name="score">概  率：</string>
     <string name="plant">植物识别</string>
@@ -15,5 +15,16 @@
     <string name="version_checked">版本检测</string>
     <string name="app_title">精准识别、快速、准确</string>
     <string name="details_title">识别详情</string>
+    <string name="car_type">车型识别</string>
+    <string name="app_info">\t\t\t本软件主要用于图片识别，暂时可识别动物、植物、果蔬、车型等。通用识别可识别所有物体，但不是精确识别，想要具体识别还需要到具体的模块去识别。
+    由于本软件是个人项目，成本有限，因此每种类型的识别都有次数限制:\n
+    通用识别：500次/天免费\n
+    车型识别：500次/天免费\n
+        动物识别：500次/天免费\n
+        植物识别：500次/天免费\n
+        果蔬识别：总剩余免费2999次\n
+        初期功能暂时只有这些，后续版本会陆续迭代新的识别功能或其他功能，如有使用问题或建议大家可以加qq群785663376反应。
+        感谢大家的支持！！
+    </string>
 
 </resources>
