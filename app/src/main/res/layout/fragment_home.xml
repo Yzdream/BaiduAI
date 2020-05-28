@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -19,68 +20,218 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <ImageView
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_200"
-                android:scaleType="fitXY"
-                android:src="@mipmap/bg_banner"
+                app:banner_default_image="@mipmap/bg_banner"
                 tools:ignore="ContentDescription" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="@dimen/dp_20"
-                android:paddingStart="@dimen/dp_20"
-                android:paddingEnd="@dimen/dp_20">
+                android:paddingStart="@dimen/dp_14"
+                android:paddingEnd="@dimen/dp_14">
 
-                <Button
-                    android:id="@+id/tv_general"
-                    style="@style/home_text"
-                    android:layout_width="@dimen/dp_163"
-                    android:layout_height="@dimen/dp_226"
-                    android:layout_marginBottom="@dimen/dp_10"
-                    android:background="@mipmap/bg_general"
-                    android:text="@string/general" />
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_general"
+                    android:layout_width="@dimen/dp_165"
+                    android:layout_height="@dimen/dp_110"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    app:cardBackgroundColor="@color/green_08"
+                    app:cardCornerRadius="@dimen/dp_5"
+                    app:cardElevation="@dimen/dp_2"
+                    app:cardMaxElevation="@dimen/dp_2"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
 
-                <Button
-                    android:id="@+id/tv_car_type"
-                    style="@style/home_text"
-                    android:layout_width="@dimen/dp_163"
-                    android:layout_height="@dimen/dp_130"
-                    android:layout_marginBottom="@dimen/dp_10"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/dp_16"
+                        android:paddingEnd="@dimen/dp_16">
+
+                        <TextView
+                            android:id="@+id/tv_general"
+                            style="@style/home_text"
+                            android:layout_marginTop="@dimen/dp_20"
+                            android:drawableEnd="@mipmap/icon_general"
+                            android:drawablePadding="@dimen/dp_25"
+                            android:gravity="center"
+                            android:text="@string/general" />
+
+                        <TextView
+                            style="@style/home_text"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/dp_20"
+                            android:gravity="center"
+                            android:text="General" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_plant"
+                    android:layout_width="@dimen/dp_165"
+                    android:layout_height="@dimen/dp_110"
                     android:layout_alignParentEnd="true"
-                    android:background="@mipmap/bg_general"
-                    android:text="@string/car_type" />
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    app:cardBackgroundColor="@color/olive_3f"
+                    app:cardCornerRadius="@dimen/dp_5"
+                    app:cardElevation="@dimen/dp_2"
+                    app:cardMaxElevation="@dimen/dp_2"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
 
-                <Button
-                    android:id="@+id/tv_plant"
-                    style="@style/home_text"
-                    android:layout_width="@dimen/dp_163"
-                    android:layout_height="@dimen/dp_85"
-                    android:layout_below="@+id/tv_general"
-                    android:background="@mipmap/bg_plant"
-                    android:text="@string/plant" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/dp_16"
+                        android:paddingEnd="@dimen/dp_16">
 
-                <Button
-                    android:id="@+id/tv_animal"
-                    style="@style/home_text"
-                    android:layout_width="@dimen/dp_163"
-                    android:layout_height="@dimen/dp_85"
-                    android:layout_below="@+id/tv_car_type"
+                        <TextView
+                            android:id="@+id/tv_plant"
+                            style="@style/home_text"
+                            android:layout_marginTop="@dimen/dp_20"
+                            android:drawableEnd="@mipmap/icon_plant"
+                            android:drawablePadding="@dimen/dp_25"
+                            android:gravity="center"
+                            android:text="@string/plant" />
+
+                        <TextView
+                            style="@style/home_text"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/dp_20"
+                            android:gravity="center"
+                            android:text="Plant" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_animal"
+                    android:layout_width="@dimen/dp_165"
+                    android:layout_height="@dimen/dp_110"
+                    android:layout_below="@+id/cv_general"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    app:cardBackgroundColor="@color/orange_1d"
+                    app:cardCornerRadius="@dimen/dp_5"
+                    app:cardElevation="@dimen/dp_2"
+                    app:cardMaxElevation="@dimen/dp_2"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/dp_16"
+                        android:paddingEnd="@dimen/dp_16">
+
+                        <TextView
+                            android:id="@+id/tv_animal"
+                            style="@style/home_text"
+                            android:layout_marginTop="@dimen/dp_20"
+                            android:drawableEnd="@mipmap/icon_animal"
+                            android:drawablePadding="@dimen/dp_25"
+                            android:gravity="center"
+                            android:text="@string/animal" />
+
+                        <TextView
+                            style="@style/home_text"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/dp_20"
+                            android:gravity="center"
+                            android:text="Animal" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_ingredient"
+                    android:layout_width="@dimen/dp_165"
+                    android:layout_height="@dimen/dp_110"
+                    android:layout_below="@+id/cv_general"
                     android:layout_alignParentEnd="true"
-                    android:background="@mipmap/bg_animal"
-                    android:text="@string/animal" />
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    app:cardBackgroundColor="@color/green_4a"
+                    app:cardCornerRadius="@dimen/dp_5"
+                    app:cardElevation="@dimen/dp_2"
+                    app:cardMaxElevation="@dimen/dp_2"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
 
-                <Button
-                    android:id="@+id/tv_ingredient"
-                    style="@style/home_text"
-                    android:layout_width="@dimen/dp_163"
-                    android:layout_height="@dimen/dp_85"
-                    android:layout_below="@+id/tv_animal"
-                    android:layout_alignParentEnd="true"
-                    android:layout_marginTop="@dimen/dp_10"
-                    android:background="@mipmap/bg_ingredient"
-                    android:text="@string/ingredient" />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/dp_16"
+                        android:paddingEnd="@dimen/dp_16">
+
+                        <TextView
+                            android:id="@+id/tv_ingredient"
+                            style="@style/home_text"
+                            android:layout_marginTop="@dimen/dp_20"
+                            android:drawableEnd="@mipmap/icon_ingredient"
+                            android:drawablePadding="@dimen/dp_25"
+                            android:gravity="center"
+                            android:text="@string/ingredient" />
+
+                        <TextView
+                            style="@style/home_text"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/dp_20"
+                            android:gravity="center"
+                            android:text="Ingredient" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:id="@+id/cv_car_type"
+                    android:layout_width="@dimen/dp_165"
+                    android:layout_height="@dimen/dp_110"
+                    android:layout_below="@+id/cv_animal"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:layout_marginEnd="@dimen/dp_8"
+                    app:cardBackgroundColor="@color/purple_b6"
+                    app:cardCornerRadius="@dimen/dp_5"
+                    app:cardElevation="@dimen/dp_2"
+                    app:cardMaxElevation="@dimen/dp_2"
+                    app:cardPreventCornerOverlap="true"
+                    app:cardUseCompatPadding="true">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/dp_16"
+                        android:paddingEnd="@dimen/dp_16">
+
+                        <TextView
+                            android:id="@+id/tv_car_type"
+                            style="@style/home_text"
+                            android:layout_marginTop="@dimen/dp_20"
+                            android:drawableEnd="@mipmap/icon_car"
+                            android:drawablePadding="@dimen/dp_25"
+                            android:gravity="center"
+                            android:text="@string/car_type" />
+
+                        <TextView
+                            style="@style/home_text"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="@dimen/dp_20"
+                            android:gravity="center"
+                            android:text="Vehicle" />
+
+                    </RelativeLayout>
+
+                </android.support.v7.widget.CardView>
 
             </RelativeLayout>
         </LinearLayout>

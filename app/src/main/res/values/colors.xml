@@ -23,4 +23,14 @@
     <color name="green_b9">#6decb9</color>
 
     <color name="yellow_b2">#eef5b2</color>
+
+    <color name="green_08">#31c1bb</color>
+    <color name="yellow_08">#fbbd08</color>
+    <color name="olive_3f">#8dc63f</color>
+    <color name="green_4a">#39b54a</color>
+    <color name="cyan_b4">#1cbbb4</color>
+    <color name="red_42">#e54d42</color>
+    <color name="orange_1d">#f37b1d</color>
+    <color name="blue_ff">#0081ff</color>
+    <color name="purple_b6">#6739b6</color>
 </resources>
