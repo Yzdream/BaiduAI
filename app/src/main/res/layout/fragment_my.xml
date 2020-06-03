@@ -19,7 +19,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_200"
-            android:background="@color/colorPrimary">
+            android:background="@mipmap/bg_top">
 
             <ImageView
                 android:id="@+id/iv_logo"
