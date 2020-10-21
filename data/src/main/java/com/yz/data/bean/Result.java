@@ -48,7 +48,7 @@ public class Result {
     }
 
     public String getKeyword() {
-        return keyword + "("+getRoot()+")";
+        return keyword + "(" + getRoot() + ")";
     }
 
     public void setKeyword(String keyword) {

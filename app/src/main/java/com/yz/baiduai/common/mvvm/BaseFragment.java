@@ -61,7 +61,7 @@ public abstract class BaseFragment<mBinding extends ViewDataBinding, mViewModel 
                 mRoot = mBinding.getRoot();
             }
             initView(mRoot);
-        }else {
+        } else {
             if (mRoot.getParent() != null) {
                 // 把当前Root从其父控件中移除
                 ((ViewGroup) mRoot.getParent()).removeView(mRoot);

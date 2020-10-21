@@ -11,7 +11,7 @@ public class ApiExecption extends RuntimeException {
 
     private String errorCode;
 
-     public ApiExecption(String code, String msg) {
+    public ApiExecption(String code, String msg) {
         super(msg);
         this.errorCode = code;
     }

@@ -22,279 +22,280 @@ import android.widget.TextView;
 
 import java.util.regex.Pattern;
 
-public class ViewHolder extends RecyclerView.ViewHolder{
+public class ViewHolder extends RecyclerView.ViewHolder {
 
     private SparseArray<View> views;
 
     private View convertView;
 
-    public ViewHolder (View convertView){
+    public ViewHolder(View convertView) {
         super(convertView);
         this.convertView = convertView;
         views = new SparseArray<>();
     }
 
-    public View getConvertView(){
+    public View getConvertView() {
         return convertView;
     }
 
-    private <T extends View> T findView(@IdRes int id){
+    private <T extends View> T findView(@IdRes int id) {
 
-        return (T)convertView.findViewById(id);
+        return (T) convertView.findViewById(id);
     }
 
-    public <T extends  View> T getView(@IdRes int id){
+    public <T extends View> T getView(@IdRes int id) {
 
         View v = views.get(id);
-        if(v == null){
+        if (v == null) {
             v = findView(id);
-            views.put(id,v);
+            views.put(id, v);
         }
 
-        return (T)v;
+        return (T) v;
     }
 
     //---------------------- 控件常用设置
 
-    public View setBackgroundResource(@IdRes int id,int resId){
+    public View setBackgroundResource(@IdRes int id, int resId) {
         View v = getView(id);
         v.setBackgroundResource(resId);
         return v;
     }
 
     @TargetApi(16)
-    public View setBackground(@IdRes int id, Drawable drawable){
+    public View setBackground(@IdRes int id, Drawable drawable) {
         View v = getView(id);
         v.setBackground(drawable);
         return v;
     }
 
-    public View setBackgroundColor(@IdRes int id,int color){
+    public View setBackgroundColor(@IdRes int id, int color) {
         View v = getView(id);
         v.setBackgroundColor(color);
         return v;
     }
 
-    public View setTag(@IdRes int id,Object tag){
+    public View setTag(@IdRes int id, Object tag) {
         View v = getView(id);
         v.setTag(tag);
         return v;
     }
 
-    public View setTag(@IdRes int id,int key,Object tag){
+    public View setTag(@IdRes int id, int key, Object tag) {
         View v = getView(id);
         return v;
     }
 
-    public View setVisibility(@IdRes int id,int visibility){
+    public View setVisibility(@IdRes int id, int visibility) {
         View v = getView(id);
         v.setVisibility(visibility);
         return v;
     }
 
-    public View setVisibility(@IdRes int id,boolean isVisible){
+    public View setVisibility(@IdRes int id, boolean isVisible) {
         View v = getView(id);
-        if(isVisible){
+        if (isVisible) {
             v.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             v.setVisibility(View.GONE);
         }
         return v;
     }
 
-    public void setAlpha(@IdRes int id,float alpha){
+    public void setAlpha(@IdRes int id, float alpha) {
         View v = getView(id);
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
             v.setAlpha(alpha);
-        }else{
-            Animation anim = new AlphaAnimation(alpha,alpha);
+        } else {
+            Animation anim = new AlphaAnimation(alpha, alpha);
             anim.setFillAfter(true);
             v.startAnimation(anim);
         }
 
     }
 
-    public TextView setCompoundDrawableLeft(@IdRes int id, Drawable drawable){
-        return setCompoundDrawables(id,drawable,null,null,null);
+    public TextView setCompoundDrawableLeft(@IdRes int id, Drawable drawable) {
+        return setCompoundDrawables(id, drawable, null, null, null);
     }
 
-    public TextView setCompoundDrawableTop(@IdRes int id,Drawable drawable){
-        return setCompoundDrawables(id,null,drawable,null,null);
+    public TextView setCompoundDrawableTop(@IdRes int id, Drawable drawable) {
+        return setCompoundDrawables(id, null, drawable, null, null);
     }
 
-    public TextView setCompoundDrawableRight(@IdRes int id,Drawable drawable){
-        return setCompoundDrawables(id,null,null,drawable,null);
+    public TextView setCompoundDrawableRight(@IdRes int id, Drawable drawable) {
+        return setCompoundDrawables(id, null, null, drawable, null);
     }
 
-    public TextView setCompoundDrawableBottom(@IdRes int id,Drawable drawable){
-        return setCompoundDrawables(id,null,null,null,drawable);
+    public TextView setCompoundDrawableBottom(@IdRes int id, Drawable drawable) {
+        return setCompoundDrawables(id, null, null, null, drawable);
     }
 
 
-    public TextView setCompoundDrawables(@IdRes int id,Drawable left,Drawable top,Drawable right,Drawable bottom){
+    public TextView setCompoundDrawables(@IdRes int id, Drawable left, Drawable top, Drawable right, Drawable bottom) {
         TextView tv = getView(id);
         tv.setCompoundDrawables(left, top, right, bottom);
         return tv;
     }
 
-    public TextView setCompoundDrawablePadding(@IdRes int id,int padding){
+    public TextView setCompoundDrawablePadding(@IdRes int id, int padding) {
         TextView tv = getView(id);
         tv.setCompoundDrawablePadding(padding);
         return tv;
     }
 
-    public TextView setCompoundDrawablesWithIntrinsicBounds(@IdRes int id,Drawable left,Drawable top,Drawable right,Drawable bottom){
+    public TextView setCompoundDrawablesWithIntrinsicBounds(@IdRes int id, Drawable left, Drawable top, Drawable right, Drawable bottom) {
         TextView tv = getView(id);
         tv.setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
         return tv;
     }
 
-    public TextView setText(@IdRes int id,@StringRes int resId){
+    public TextView setText(@IdRes int id, @StringRes int resId) {
         TextView tv = getView(id);
         tv.setText(resId);
         return tv;
     }
 
-    public TextView setText(@IdRes int id,CharSequence text){
+    public TextView setText(@IdRes int id, CharSequence text) {
         TextView tv = getView(id);
         tv.setText(text);
         return tv;
     }
 
-    public TextView setTextColor(@IdRes int id,int color){
+    public TextView setTextColor(@IdRes int id, int color) {
         TextView tv = getView(id);
         tv.setTextColor(color);
         return tv;
     }
 
-    public TextView setTextColor(@IdRes int id, ColorStateList colors){
+    public TextView setTextColor(@IdRes int id, ColorStateList colors) {
         TextView tv = getView(id);
         tv.setTextColor(colors);
         return tv;
     }
 
-    public TextView setTypeface(@IdRes int id, Typeface tf){
+    public TextView setTypeface(@IdRes int id, Typeface tf) {
         TextView tv = getView(id);
         tv.setTypeface(tf);
         return tv;
     }
 
-    public TextView setTypeface(@IdRes int id,Typeface tf, int style){
+    public TextView setTypeface(@IdRes int id, Typeface tf, int style) {
         TextView tv = getView(id);
-        tv.setTypeface(tf,style);
+        tv.setTypeface(tf, style);
         return tv;
     }
 
-    public TextView addLinks(@IdRes int id){
+    public TextView addLinks(@IdRes int id) {
         TextView tv = getView(id);
-        Linkify.addLinks(tv,Linkify.ALL);
+        Linkify.addLinks(tv, Linkify.ALL);
         return tv;
     }
 
-    public TextView addLinks(@IdRes int id,int mask){
+    public TextView addLinks(@IdRes int id, int mask) {
         TextView tv = getView(id);
-        Linkify.addLinks(tv,mask);
+        Linkify.addLinks(tv, mask);
         return tv;
     }
-    public TextView addLinks(@IdRes int id, Pattern pattern, String scheme){
+
+    public TextView addLinks(@IdRes int id, Pattern pattern, String scheme) {
         TextView tv = getView(id);
-        Linkify.addLinks(tv,pattern,scheme);
+        Linkify.addLinks(tv, pattern, scheme);
         return tv;
     }
 
 
-    public ImageView setImageResource(@IdRes int id, int resId){
+    public ImageView setImageResource(@IdRes int id, int resId) {
         ImageView iv = getView(id);
         iv.setImageResource(resId);
         return iv;
     }
 
-    public ImageView setImageBitmap(@IdRes int id, Bitmap bitmap){
+    public ImageView setImageBitmap(@IdRes int id, Bitmap bitmap) {
         ImageView iv = getView(id);
         iv.setImageBitmap(bitmap);
         return iv;
     }
 
-    public ImageView setImageDrawable(@IdRes int id,Drawable drawable){
+    public ImageView setImageDrawable(@IdRes int id, Drawable drawable) {
         ImageView iv = getView(id);
         iv.setImageDrawable(drawable);
         return iv;
     }
 
 
-    public Checkable setChecked(@IdRes int id, boolean isChecked){
+    public Checkable setChecked(@IdRes int id, boolean isChecked) {
         Checkable checkable = getView(id);
         checkable.setChecked(isChecked);
         return checkable;
     }
 
-    public boolean isChecked(@IdRes int id){
+    public boolean isChecked(@IdRes int id) {
         Checkable checkable = getView(id);
         return checkable.isChecked();
     }
 
-    public Checkable toggle(@IdRes int id){
+    public Checkable toggle(@IdRes int id) {
         Checkable checkable = getView(id);
         checkable.toggle();
         return checkable;
     }
 
-    public ProgressBar setProgress(@IdRes int id, int progress){
+    public ProgressBar setProgress(@IdRes int id, int progress) {
         ProgressBar progressBar = getView(id);
         progressBar.setProgress(progress);
         return progressBar;
     }
 
-    public ProgressBar setMax(@IdRes int id,int max){
+    public ProgressBar setMax(@IdRes int id, int max) {
         ProgressBar progressBar = getView(id);
         progressBar.setMax(max);
         return progressBar;
     }
 
-    public RatingBar setRating(@IdRes int id, float rating){
-        RatingBar  ratingBar = getView(id);
+    public RatingBar setRating(@IdRes int id, float rating) {
+        RatingBar ratingBar = getView(id);
         ratingBar.setRating(rating);
         return ratingBar;
     }
 
-    public RatingBar setRating(@IdRes int id,float rating,int max){
-        RatingBar  ratingBar = getView(id);
+    public RatingBar setRating(@IdRes int id, float rating, int max) {
+        RatingBar ratingBar = getView(id);
         ratingBar.setRating(rating);
         ratingBar.setMax(max);
         return ratingBar;
     }
 
-    public RatingBar setNumStars(@IdRes int id,int numStars){
-        RatingBar  ratingBar = getView(id);
+    public RatingBar setNumStars(@IdRes int id, int numStars) {
+        RatingBar ratingBar = getView(id);
         ratingBar.setNumStars(numStars);
         return ratingBar;
     }
 
-    public View setSelecteded(@IdRes int id, boolean selected){
+    public View setSelecteded(@IdRes int id, boolean selected) {
         View view = getView(id);
         view.setSelected(selected);
         return view;
     }
 
-    public boolean isSelected(@IdRes int id){
+    public boolean isSelected(@IdRes int id) {
         return getView(id).isSelected();
     }
 
     //---------------------- 监听事件
 
-    public void setOnClickListener(@IdRes int id, View.OnClickListener onClickListener){
+    public void setOnClickListener(@IdRes int id, View.OnClickListener onClickListener) {
         getView(id).setOnClickListener(onClickListener);
     }
 
-    public void setOnTouchListener(@IdRes int id, View.OnTouchListener onTouchListener){
+    public void setOnTouchListener(@IdRes int id, View.OnTouchListener onTouchListener) {
         getView(id).setOnTouchListener(onTouchListener);
     }
 
-    public void setOnLongClickListener(@IdRes int id, View.OnLongClickListener onLongClickListener){
+    public void setOnLongClickListener(@IdRes int id, View.OnLongClickListener onLongClickListener) {
         getView(id).setOnLongClickListener(onLongClickListener);
     }
 
-    public void setOnKeyListener(@IdRes int id, View.OnKeyListener onKeyListener){
+    public void setOnKeyListener(@IdRes int id, View.OnKeyListener onKeyListener) {
         getView(id).setOnKeyListener(onKeyListener);
     }
 

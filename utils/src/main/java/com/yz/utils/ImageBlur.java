@@ -11,11 +11,11 @@ import android.view.View;
 
 public class ImageBlur {
 
-    public static void makeBlur(View imageview, int radius,Context context) {
+    public static void makeBlur(View imageview, int radius, Context context) {
         BitmapDrawable drawable = (BitmapDrawable) imageview.getBackground();
         Bitmap bitmap = drawable.getBitmap();
         Bitmap blurred = blurRenderScript(bitmap, radius, context); //second parametre is radius max:25
-        imageview.setBackground(new BitmapDrawable(context.getResources(),blurred)); //radius decide blur amount
+        imageview.setBackground(new BitmapDrawable(context.getResources(), blurred)); //radius decide blur amount
     }
 
     private static Bitmap blurRenderScript(Bitmap smallBitmap, int radius, Context context) {

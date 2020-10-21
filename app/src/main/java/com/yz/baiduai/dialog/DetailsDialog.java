@@ -37,7 +37,7 @@ public class DetailsDialog extends BaseDialogFragment<ActivityDetailsBinding, Ma
     @Override
     protected void initView() {
         Logger.i(new Gson().toJson(mViewModel.getDetails().getValue()));
-        if (getDialog()!=null)
+        if (getDialog() != null)
             getDialog().setCanceledOnTouchOutside(false);
         mBinding.rvDetails.setLayoutManager(new LinearLayoutManager(getActivity()));
         BindingAdapter<Result, ItemDataBinding> itemAdapter = new BindingAdapter<>(getActivity(), mViewModel.getDetails().getValue(), R.layout.item_data);

@@ -37,8 +37,7 @@ public class HtmlTagHandler implements Html.TagHandler {
 
             if (opening) {
                 startHandleTag(tag, output, xmlReader);
-            }
-            else {
+            } else {
                 endEndHandleTag(tag, output, xmlReader);
             }
         }

@@ -14,7 +14,7 @@ public class BindingHolder<VDB extends ViewDataBinding> extends ViewHolder {
         mBinding = DataBindingUtil.bind(convertView);
     }
 
-    public VDB getBinding(){
+    public VDB getBinding() {
         return mBinding;
     }
 }

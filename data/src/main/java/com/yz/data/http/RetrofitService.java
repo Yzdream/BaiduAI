@@ -23,7 +23,7 @@ import rx.Observable;
 public interface RetrofitService {
 
     @GET("/oauth/2.0/token")
-    Observable<BaiduKey> getAccessToken(@QueryMap Map<String,String> map);
+    Observable<BaiduKey> getAccessToken(@QueryMap Map<String, String> map);
 
     @POST("/rest/2.0/image-classify/v2/advanced_general")
     Observable<ResultData> getGeneral(@Body RequestBody body, @Query("access_token") String accessToken);

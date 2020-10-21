@@ -42,7 +42,7 @@ public class UncaughtException {
         return instance;
     }
 
-    public void exceptionThrowable(Throwable throwable){
+    public void exceptionThrowable(Throwable throwable) {
         try {
             StringWriter sw = new StringWriter();
             PrintWriter err = new PrintWriter(sw);
@@ -69,7 +69,7 @@ public class UncaughtException {
 
             if (BuildConfig.DEBUG) {
                 throwable.printStackTrace();
-           } else {
+            } else {
                 //友盟上传错误
 //                MobclickAgent.reportError(mContext, throwable);
                 // 退出进程

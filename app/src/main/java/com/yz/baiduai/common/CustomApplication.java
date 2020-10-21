@@ -10,7 +10,7 @@ import java.util.List;
 
 public class CustomApplication extends BaseApplication {
 
-    private static final int MAX_SLEEP_TIME =  10 * 60 * 1000; //应用退到后台后最大的休眠唤起时间
+    private static final int MAX_SLEEP_TIME = 10 * 60 * 1000; //应用退到后台后最大的休眠唤起时间
     // 正常状态
     public static final int STATE_NORMAL = 0;
     // 从后台回到前台
@@ -51,7 +51,7 @@ public class CustomApplication extends BaseApplication {
                     sAppState = STATE_BACK_TO_FRONT;
                     backToFrontTime = System.currentTimeMillis();
                     if (canShowAd()) {
-                       //从后台到前台时可进行操作 如：重新打开欢迎界面
+                        //从后台到前台时可进行操作 如：重新打开欢迎界面
                     }
                 } else {
                     sAppState = STATE_NORMAL;
@@ -126,7 +126,8 @@ public class CustomApplication extends BaseApplication {
     private boolean isCurAppTop(Context context) {
         if (context == null) {
             return false;
-        }try {
+        }
+        try {
             String curPackageName = context.getPackageName();
             ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
             List<ActivityManager.RunningTaskInfo> list = am.getRunningTasks(1);

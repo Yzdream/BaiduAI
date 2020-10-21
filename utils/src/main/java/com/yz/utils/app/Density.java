@@ -49,7 +49,7 @@ public class Density {
     }
 
     private static void setAppOrientation(@Nullable Activity activity) {
-        if (activity==null)
+        if (activity == null)
             return;
 
         float targetDensity = 0;

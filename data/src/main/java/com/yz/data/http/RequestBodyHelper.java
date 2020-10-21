@@ -41,7 +41,7 @@ public class RequestBodyHelper {
         }
         String jso = data.substring(0, data.length() - 1);
         Logger.i(jso);
-        return  RequestBody.create(mediaType,jso);
+        return RequestBody.create(mediaType, jso);
     }
 
 }

@@ -14,7 +14,7 @@ import android.view.ViewGroup;
  * Created by dell on 2018/3/8.
  */
 
-public abstract class VpBaseFragment<mBinding extends ViewDataBinding, mViewModel extends BaseViewModel> extends BaseFragment<mBinding,mViewModel> {
+public abstract class VpBaseFragment<mBinding extends ViewDataBinding, mViewModel extends BaseViewModel> extends BaseFragment<mBinding, mViewModel> {
 
     protected boolean isVisibleToUser; //页面是否可见
     protected boolean isDataInitiated; //数据是否加载
@@ -41,7 +41,7 @@ public abstract class VpBaseFragment<mBinding extends ViewDataBinding, mViewMode
         super.setUserVisibleHint(isVisibleToUser);
         this.isVisibleToUser = isVisibleToUser;
         prepareFetchData(false);
-        if (!isViewInitiated || !isStart){
+        if (!isViewInitiated || !isStart) {
             return;
         }
         if (!isVisibleToUser) {

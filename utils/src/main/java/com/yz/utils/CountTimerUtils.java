@@ -14,8 +14,6 @@ public class CountTimerUtils extends CountDownTimer {
 
     /**
      * @param textView          The TextView
-     *
-     *
      * @param millisInFuture    The number of millis in the future from the call
      *                          to {@link #start()} until the countdown is done and {@link #onFinish()}
      *                          is called.

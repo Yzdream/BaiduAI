@@ -51,8 +51,8 @@ public class ImageDetailsActivity extends BaseActivity<ActivityImageDetailsBindi
 
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
-    public void getEventListData(List<Result> list){
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void getEventListData(List<Result> list) {
         mBinding.rvDetails.setLayoutManager(new LinearLayoutManager(this));
         BindingAdapter<Result, ItemDataBinding> itemAdapter = new BindingAdapter<>(this, list, R.layout.item_data);
         mBinding.rvDetails.setAdapter(itemAdapter);

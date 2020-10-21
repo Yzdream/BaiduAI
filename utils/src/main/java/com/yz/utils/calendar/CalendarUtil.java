@@ -58,20 +58,20 @@ public class CalendarUtil {
             data.setClick(true);
             data.setChoose(false);
 
-            if (TimeUtils.dateFormat(String.valueOf(nowYear)+"-"+String.valueOf(nowMonth)+"-"+(i - empty)).equals(TimeUtils.getNowDate("yyyy-MM-dd"))) {
+            if (TimeUtils.dateFormat(String.valueOf(nowYear) + "-" + String.valueOf(nowMonth) + "-" + (i - empty)).equals(TimeUtils.getNowDate("yyyy-MM-dd"))) {
                 data.setToday(true);
             } else {
                 data.setToday(false);
                 data.setChoose(false);
             }
-            if (chooseDay.equals(TimeUtils.dateFormat(String.valueOf(nowYear)+"-"+String.valueOf(nowMonth)+"-"+(i - empty))))
+            if (chooseDay.equals(TimeUtils.dateFormat(String.valueOf(nowYear) + "-" + String.valueOf(nowMonth) + "-" + (i - empty))))
                 data.setChoose(true);
             list.add(data);
         }
 
         //最后一天周几，空格要加到周六  保证横向翻页正常
-        int emptyEnd = dayOfweekOnYearAndMonth(daysOfYearAndMonth()) == 7 ? 6:6-dayOfweekOnYearAndMonth(daysOfYearAndMonth());
-        for (int j = 0;j <emptyEnd; j++){
+        int emptyEnd = dayOfweekOnYearAndMonth(daysOfYearAndMonth()) == 7 ? 6 : 6 - dayOfweekOnYearAndMonth(daysOfYearAndMonth());
+        for (int j = 0; j < emptyEnd; j++) {
             CalenderBean data = new CalenderBean();
             data.setStatus("");
             data.setDate("");
@@ -139,7 +139,7 @@ public class CalendarUtil {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getDate().equals(day)) {
                 list.get(i).setChoose(true);
-                chooseDay =TimeUtils.dateFormat(nowYear + "-" + nowMonth + "-" + list.get(i).getDate());
+                chooseDay = TimeUtils.dateFormat(nowYear + "-" + nowMonth + "-" + list.get(i).getDate());
             } else list.get(i).setChoose(false);
         }
         return list;
@@ -161,8 +161,8 @@ public class CalendarUtil {
 //        return data.get(nowPosition).getCalenderBeans();
 //    }
 
-    public  String getNowDate(){
-        return TimeUtils.dateFormat(nowYear+String.valueOf(nowMonth));
+    public String getNowDate() {
+        return TimeUtils.dateFormat(nowYear + String.valueOf(nowMonth));
     }
 
     /**
@@ -170,13 +170,13 @@ public class CalendarUtil {
      *
      * @return 天数
      */
-    public  int daysOfYearAndMonth() {
+    public int daysOfYearAndMonth() {
         Calendar c = Calendar.getInstance();
         c.set(nowYear, nowMonth, 0);
         return c.get(Calendar.DAY_OF_MONTH);
     }
 
-    public static int daysOfYearAndMonth(int year,int month) {
+    public static int daysOfYearAndMonth(int year, int month) {
         Calendar c = Calendar.getInstance();
         c.set(year, month, 0);
         return c.get(Calendar.DAY_OF_MONTH);

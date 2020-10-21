@@ -29,6 +29,7 @@ public class AppUtils {
 
     /**
      * [获取应用程序版本名称信息]
+     *
      * @param context 上下文对象
      * @return 当前应用的版本名称
      */
@@ -47,6 +48,7 @@ public class AppUtils {
 
     /**
      * [获取应用程序版本号]
+     *
      * @param context 上下文对象
      * @return 应用程序版本号
      */
@@ -65,6 +67,7 @@ public class AppUtils {
 
     /**
      * [获取应用程序包名]
+     *
      * @param context 上下文对象
      * @return 应用程序包名
      */
@@ -83,6 +86,7 @@ public class AppUtils {
 
     /**
      * 获取图标 bitmap
+     *
      * @param context
      */
     public static synchronized Bitmap getBitmap(Context context) {

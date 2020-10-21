@@ -101,6 +101,7 @@ public class HomeFragment extends FmBaseFragment<FragmentHomeBinding, MainViewMo
         mBinding.banner.setImages(images);
         //设置自动轮播，默认为true
         mBinding.banner.isAutoPlay(true);
+        mBinding.banner.setDelayTime(3000);
         mBinding.banner.start();
     }
 

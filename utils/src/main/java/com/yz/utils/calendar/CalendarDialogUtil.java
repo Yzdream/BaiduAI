@@ -78,7 +78,7 @@ public class CalendarDialogUtil {
         return list;
     }
 
-    public void saveDate(List<CalenderBean> date){
+    public void saveDate(List<CalenderBean> date) {
         //存储所有请求过的日期
         CalenderListBean calenderListBean = new CalenderListBean();
         calenderListBean.setCalenderBeans(date);
@@ -117,7 +117,7 @@ public class CalendarDialogUtil {
         return initData();
     }
 
-    public static String getUpMonth(){
+    public static String getUpMonth() {
         String year;
         String month;
         if (nowMonth == 1) {
@@ -127,10 +127,10 @@ public class CalendarDialogUtil {
             year = String.valueOf(nowYear);
             month = String.valueOf(nowMonth - 1);
         }
-        return year+"-"+(month.length()>1?month:0+month);
+        return year + "-" + (month.length() > 1 ? month : 0 + month);
     }
 
-    public static String getNextMonth(){
+    public static String getNextMonth() {
         String year;
         String month;
         if (nowMonth == 12) {
@@ -140,7 +140,7 @@ public class CalendarDialogUtil {
             year = String.valueOf(nowYear);
             month = String.valueOf(nowMonth + 1);
         }
-        return year+"-"+(month.length()>1?month:0+month);
+        return year + "-" + (month.length() > 1 ? month : 0 + month);
     }
 
     /**
@@ -212,15 +212,15 @@ public class CalendarDialogUtil {
         for (int i = 0; i < data.size(); i++) {
             for (int j = 0; j < data.get(i).getCalenderBeans().size(); j++) {
                 if (data.get(i).getCalenderBeans().get(j).isChoose()) {
-                    dateList.add( TimeUtils.dateFormat(data.get(i).getDate() + "-" + data.get(i).getCalenderBeans().get(j).getDate()));
+                    dateList.add(TimeUtils.dateFormat(data.get(i).getDate() + "-" + data.get(i).getCalenderBeans().get(j).getDate()));
                 }
             }
         }
         return dateList;
     }
 
-    public String getYearAndMonth(){
-        return nowYear+"-"+nowMonth;
+    public String getYearAndMonth() {
+        return nowYear + "-" + nowMonth;
     }
 
     /**

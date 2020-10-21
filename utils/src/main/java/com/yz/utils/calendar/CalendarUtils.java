@@ -14,7 +14,7 @@ public class CalendarUtils {
     //yyyy-MM-dd
     private String chooseDate = null;
     //显示的年
-    private Integer nowYear ;
+    private Integer nowYear;
     //显示的月
     private Integer nowMonth;
 
@@ -22,11 +22,12 @@ public class CalendarUtils {
 
     /**
      * 设置默认选中日期
+     *
      * @param date yyyy-MM-dd
      */
-    public void setChooseDate(String date){
+    public void setChooseDate(String date) {
         chooseDate = date;
-        if (!TextUtils.isEmpty(chooseDate)){
+        if (!TextUtils.isEmpty(chooseDate)) {
             nowYear = Integer.parseInt(chooseDate.split("-")[0]);
             nowMonth = Integer.parseInt(chooseDate.split("-")[1]);
         }
@@ -49,19 +50,19 @@ public class CalendarUtils {
                 continue;
             }
 
-            data.setDate(TimeUtils.getDateToFormat(nowYear + "-"+nowMonth+"-"+String.valueOf(i - empty),"yyyy-MM-dd"));
+            data.setDate(TimeUtils.getDateToFormat(nowYear + "-" + nowMonth + "-" + String.valueOf(i - empty), "yyyy-MM-dd"));
             data.setClick(true);
             data.setChoose(false);
 
             //今天
-            if (data.getDate().equals(TimeUtils.getNowDate("yyyy-MM-dd"))){
+            if (data.getDate().equals(TimeUtils.getNowDate("yyyy-MM-dd"))) {
                 data.setToday(true);
-            }else{
+            } else {
                 data.setToday(false);
             }
 
             //默认选中的日期
-            if (!TextUtils.isEmpty(chooseDate) && chooseDate.equals(data.getDate())){
+            if (!TextUtils.isEmpty(chooseDate) && chooseDate.equals(data.getDate())) {
                 data.setChoose(true);
             }
             list.add(data);
@@ -72,6 +73,7 @@ public class CalendarUtils {
 
     /**
      * 单选 日期
+     *
      * @param date yyyyMMdd
      * @return list集合
      */
@@ -113,21 +115,21 @@ public class CalendarUtils {
         return initData();
     }
 
-    public String getNextMonth(){
+    public String getNextMonth() {
         if (nowMonth == 12) {
             nowYear += 1;
             nowMonth = 1;
-            return TimeUtils.getDateToFormat((nowYear+1)+"-"+1+"-"+1,"yyyy-MM-dd");
+            return TimeUtils.getDateToFormat((nowYear + 1) + "-" + 1 + "-" + 1, "yyyy-MM-dd");
         } else {
-            return  TimeUtils.getDateToFormat(nowYear+"-"+(nowMonth+1)+"-"+1,"yyyy-MM-dd");
+            return TimeUtils.getDateToFormat(nowYear + "-" + (nowMonth + 1) + "-" + 1, "yyyy-MM-dd");
         }
     }
 
-    public String getUpMonth(){
+    public String getUpMonth() {
         if (nowMonth == 1) {
-            return TimeUtils.getDateToFormat((nowYear-1)+"-"+"12"+"-"+"1","yyyy-MM-dd");
+            return TimeUtils.getDateToFormat((nowYear - 1) + "-" + "12" + "-" + "1", "yyyy-MM-dd");
         } else {
-            return TimeUtils.getDateToFormat(nowYear+"-"+(nowMonth - 1)+"-"+"1","yyyy-MM-dd");
+            return TimeUtils.getDateToFormat(nowYear + "-" + (nowMonth - 1) + "-" + "1", "yyyy-MM-dd");
         }
     }
 
@@ -137,22 +139,22 @@ public class CalendarUtils {
     }
 
     public String getChooseMonth() {
-        return  TextUtils.isEmpty(chooseDate) ? "" :chooseDate.split("-")[1];
+        return TextUtils.isEmpty(chooseDate) ? "" : chooseDate.split("-")[1];
     }
 
     public String getChooseDay() {
-        return  TextUtils.isEmpty(chooseDate) ? "" :chooseDate.split("-")[2];
+        return TextUtils.isEmpty(chooseDate) ? "" : chooseDate.split("-")[2];
     }
 
     public String getChooseDate() {
         return chooseDate;
     }
 
-    public String getNowYear(){
+    public String getNowYear() {
         return String.valueOf(nowYear);
     }
 
-    public String getNowMonth(){
+    public String getNowMonth() {
         return String.valueOf(nowMonth);
     }
 

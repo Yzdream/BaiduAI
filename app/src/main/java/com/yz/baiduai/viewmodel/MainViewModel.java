@@ -115,9 +115,6 @@ public class MainViewModel extends BaseViewModel<BaiduModel> {
                     @Override
                     public void onNext(Map<String, Object> map) {
                         switch (type) {
-                            case Constants.GENERAL:
-                                mModel.identifyGeneral(map, resultDataListener);
-                                break;
                             case Constants.PLANT:
                                 mModel.identifyPlant(map, resultDataListener);
                                 break;

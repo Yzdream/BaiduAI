@@ -10,7 +10,7 @@ import org.greenrobot.eventbus.EventBus;
  */
 public class EventBusUtils {
 
-    public static void initEventBusIndex(){
+    public static void initEventBusIndex() {
         //修改默认实现的配置，记住，必须在第一次EventBus.getDefault()之前配置，且只能设置一次。建议在application.onCreate()调用
 //        EventBus.builder().throwSubscriberException(BuildConfig.DEBUG).addIndex(new MyEventBusIndex()).installDefaultEventBus();
 

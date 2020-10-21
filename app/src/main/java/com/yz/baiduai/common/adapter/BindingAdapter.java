@@ -11,7 +11,8 @@ import java.util.List;
 
 public class BindingAdapter<T, VDB extends ViewDataBinding> extends HolderRecyclerAdapter<T, BindingHolder<VDB>> {
 
-    private @LayoutRes int mLayoutId;
+    private @LayoutRes
+    int mLayoutId;
 
     public BindingAdapter(Context context, List<T> listData, @LayoutRes int layoutId) {
         super(context, listData);

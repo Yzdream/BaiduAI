@@ -145,7 +145,7 @@ public class TimeUtils {
         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
         try {
             Date d = sdf.parse(date);
-            return  sdf1.format(d);
+            return sdf1.format(d);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -155,10 +155,11 @@ public class TimeUtils {
 
     /**
      * 某年某月某日在这一年这个月是第几周
+     *
      * @param time 日期 yyyy-MM-dd
      * @return 1 周一  2 周二 以次类推
      */
-    public static int dayOfWeekOnMonth(String time,boolean isDayOrWeek) {
+    public static int dayOfWeekOnMonth(String time, boolean isDayOrWeek) {
         int week = 0;
         int day = 0;
         if (TextUtils.isEmpty(time))
@@ -172,26 +173,27 @@ public class TimeUtils {
             //第几周
             week = calendar.get(Calendar.WEEK_OF_MONTH);
             //第几天，从周日开始
-             day = calendar.get(Calendar.DAY_OF_WEEK)-1;
-        }catch (Exception e){
+            day = calendar.get(Calendar.DAY_OF_WEEK) - 1;
+        } catch (Exception e) {
             e.printStackTrace();
-            return isDayOrWeek ? day:week;
+            return isDayOrWeek ? day : week;
         }
-        return isDayOrWeek ? day:week;
+        return isDayOrWeek ? day : week;
     }
 
     /**
      * 日期转换  yyyy-MM-dd ==> yyyy-MM
+     *
      * @param time 日期  yyyy-MM-dd
      * @return yyyy-MM
      */
     @SuppressLint("SimpleDateFormat")
-    public static String getYearAndMonth(String time){
-         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-         SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM");
+    public static String getYearAndMonth(String time) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM");
         try {
             Date d = sdf.parse(time);
-            return  sdf1.format(d);
+            return sdf1.format(d);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -199,12 +201,12 @@ public class TimeUtils {
     }
 
     @SuppressLint("SimpleDateFormat")
-    public static String getDateFormat(String time,String format){
+    public static String getDateFormat(String time, String format) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
         SimpleDateFormat sdf1 = new SimpleDateFormat(format);
         try {
             Date d = sdf.parse(time);
-            return  sdf1.format(d);
+            return sdf1.format(d);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -213,18 +215,19 @@ public class TimeUtils {
 
     /**
      * 时间格式化
-     * @param time  时间
-     * @param format  格式
+     *
+     * @param time   时间
+     * @param format 格式
      * @return 格式化的时间  输入时间要与格式统一  2018-1-1 ==》 yyyy-MM-dd
      */
     @SuppressLint("SimpleDateFormat")
-    public static String getDateToFormat(String time,String format){
+    public static String getDateToFormat(String time, String format) {
         if (TextUtils.isEmpty(time))
             return "";
         SimpleDateFormat sdf1 = new SimpleDateFormat(format);
         try {
             Date d = sdf1.parse(time);
-            return  sdf1.format(d);
+            return sdf1.format(d);
         } catch (ParseException e) {
             e.printStackTrace();
         }

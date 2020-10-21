@@ -1,7 +1,6 @@
 package com.yz.data.http;
 
 
-
 import com.yz.data.respond.BaseRespond;
 
 import rx.Observable;

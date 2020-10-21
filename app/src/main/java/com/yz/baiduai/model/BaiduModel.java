@@ -91,8 +91,8 @@ public class BaiduModel extends BaseRepository {
         addSubscribe(HttpMethods.getInStance().getCarType(map, accessToken).subscribe(onObserver(callBack)));
     }
 
-    private Observer<ResultData> onObserver(ResultDataCallBack<ResultData> callBack){
-       return new Observer<ResultData>() {
+    private Observer<ResultData> onObserver(ResultDataCallBack<ResultData> callBack) {
+        return new Observer<ResultData>() {
             @Override
             public void onCompleted() {
 

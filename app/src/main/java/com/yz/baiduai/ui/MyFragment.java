@@ -57,13 +57,13 @@ public class MyFragment extends FmBaseFragment<FragmentMyBinding, MainViewModel>
         }
     };
 
-    private void evaluation(){
-        try{
-            Uri uri = Uri.parse("market://details?id="+AppUtils.getPackageName(getNonNullActivity()));
-            Intent intent = new Intent(Intent.ACTION_VIEW,uri);
+    private void evaluation() {
+        try {
+            Uri uri = Uri.parse("market://details?id=" + AppUtils.getPackageName(getNonNullActivity()));
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
-        }catch(Exception e){
+        } catch (Exception e) {
             ToastHelper.showShortToast("您的手机没有安装Android应用市场");
             e.printStackTrace();
         }

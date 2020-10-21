@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
-            name="model"
-            type="com.yz.baiduai.viewmodel.MainViewModel" />
+                name="model"
+                type="com.yz.baiduai.viewmodel.MainViewModel"/>
     </data>
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
         <FrameLayout
-            android:id="@+id/fl_content"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/transparent"
-            android:layout_above="@+id/bnv_view" />
+                android:id="@+id/fl_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/transparent"
+                android:layout_above="@+id/bnv_view"/>
 
         <android.support.design.widget.BottomNavigationView
-            android:id="@+id/bnv_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:background="@color/white"
-            app:itemIconTint="@drawable/main_bottom_navigation"
-            app:itemTextColor="@drawable/main_bottom_text_navigation"
-            app:menu="@menu/bottom" />
+                android:id="@+id/bnv_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/white"
+                app:itemIconTint="@drawable/main_bottom_navigation"
+                app:itemTextColor="@drawable/main_bottom_text_navigation"
+                app:menu="@menu/bottom"/>
 
     </RelativeLayout>
 
