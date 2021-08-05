@@ -40,4 +40,7 @@ public interface RetrofitService {
     @POST("/rest/2.0/image-classify/v1/car")
     Observable<ResultData> getCarType(@Body RequestBody body, @Query("access_token") String accessToken);
 
+    @POST("/api/order/query")
+    Observable<String> getOrderInfo(@Body RequestBody body);
+
 }

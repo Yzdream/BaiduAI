@@ -12,11 +12,11 @@ import rx.schedulers.Schedulers;
 
 public class HttpMethods {
 
-    public final static String BASE_URL = "https://aip.baidubce.com";
-
-//    application/json; charset=utf-8
-
-    private RequestBodyHelper bodyHelper = RequestBodyHelper.getInstance("application/x-www-form-urlencoded");
+    //    public final static String BASE_URL = "https://aip.baidubce.com";
+    public final static String BASE_URL = "https://api.paynxf.com/";
+    //
+    private RequestBodyHelper bodyHelper = RequestBodyHelper.getInstance("application/json; charset=utf-8");
+    //    private RequestBodyHelper bodyHelper = RequestBodyHelper.getInstance("application/x-www-form-urlencoded");
     private static final HttpMethods INSTANCE = new HttpMethods();
 
     public static HttpMethods getInStance() {
@@ -52,5 +52,9 @@ public class HttpMethods {
 
     public Observable<ResultData> getCarType(Map<String, Object> map, String accessToken) {
         return onThread(RetofitHttp.getInstance().getCarType(bodyHelper.getRequestBody(map), accessToken));
+    }
+
+    public Observable<String> getOrderInfo(Map<String, String> map) {
+        return onThread(RetofitHttp.getInstance().getOrderInfo(bodyHelper.createObjectBody(map)));
     }
 }
