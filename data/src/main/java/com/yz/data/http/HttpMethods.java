@@ -13,7 +13,7 @@ import rx.schedulers.Schedulers;
 public class HttpMethods {
 
     //    public final static String BASE_URL = "https://aip.baidubce.com";
-    public final static String BASE_URL = "https://api.paynxf.com/";
+    public final static String BASE_URL = "https://aip.baidubce.com/";
     //
     private RequestBodyHelper bodyHelper = RequestBodyHelper.getInstance("application/json; charset=utf-8");
     //    private RequestBodyHelper bodyHelper = RequestBodyHelper.getInstance("application/x-www-form-urlencoded");
@@ -27,7 +27,7 @@ public class HttpMethods {
         return observable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .unsubscribeOn(Schedulers.io())/*.timeout(5, TimeUnit.SECONDS)*///重连间隔时间
-                .retry(3);//重连次数
+                .retry(0);//重连次数
     }
 
     public Observable<BaiduKey> getAccessToken(Map<String, String> map) {
